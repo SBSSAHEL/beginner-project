@@ -1,0 +1,15 @@
+import turtle
+from turtle import *
+turtle.title("Bangladesh Flag")
+
+turtle.hideturtle()
+turtle.bgcolor('#009933')
+
+turtle.penup()
+turtle.goto(0,-100)
+turtle.pendown()
+color('black',"#C62828")
+begin_fill()
+circle(100)
+end_fill()
+done()
