@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBS Sahel - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'League Spartan', sans-serif;
+            background-color: #E8F9FF;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #E8F9FF;
+        }
+
+        header nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #007BFF;
+        }
+
+        .main {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .main h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .main p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 25%;
+            overflow: hidden;
+            margin: 20px auto;
+            border: 4px solid #007BFF;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #E8F9FF;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #007BFF;
+        }
+
+        @media (max-width: 768px) {
+            .main h1 {
+                font-size: 2rem;
+            }
+
+            .main p {
+                font-size: 1rem;
+            }
+
+            header nav a {
+                margin: 0 10px;
+                font-size: 0.9rem;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>SBS Sahel</h1>
+        <nav>
+            <a href="about.html">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="profile-img">
+            <img src="D:\my_project\beginner-project\html1nnn\WhatsApp Image 2025-01-13 at 01.40.04_445d82b8.jpg" alt="Profile Image">
+        </div>
+        <h1>Hello, I'm Sahel</h1>
+        <p>Also known as SBS Sahel, I'm a creative learner and aspiring programmer.</p>
+        <p>Currently learning C/C++, Java, Python, and already proficient in HTML & CSS.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SBS Sahel. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="mailto:sahlshanbin@gmail.com">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/sahelsbs">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/shanbinsahel_01/">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>
