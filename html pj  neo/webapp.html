@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fantastic Adventure</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7fa;
+            color: #006064;
+            margin: 0;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #scene {
+            margin-top: 30px;
+            font-size: 1.2em;
+        }
+
+        .option-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 1em;
+            background-color: #00838f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .option-button:hover {
+            background-color: #005662;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Fantastic Adventure</h1>
+    <div id="scene"></div>
+    <div id="options"></div>
+
+    <script>
+        // Game Data
+        const gameData = {
+            start: {
+                text: "You are Alex, an adventurous kid with a knack for discovering the unknown. One day, while playing in your backyard, you find a mysterious glowing portal behind a tree. What do you do?",
+                options: [
+                    { text: "Enter the portal without hesitation.", next: "portalEntry" },
+                    { text: "Call your best friend Sam to join you.", next: "callFriend" },
+                    { text: "Ignore it and continue playing.", next: "ignorePortal" }
+                ]
+            },
+
+            portalEntry: {
+                text: "You step through the portal and find yourself in a world made entirely of giant desserts! The air smells like chocolate, and the ground is marshmallow soft.",
+                options: [
+                    { text: "Taste the chocolate river.", next: "chocolateRiver" },
+                    { text: "Climb the candy mountain.", next: "candyMountain" },
+                    { text: "Look for inhabitants.", next: "meetInhabitants" }
+                ]
+            },
+
+            callFriend: {
+                text: "Sam arrives, eyes wide with excitement. Together, you decide your next move.",
+                options: [
+                    { text: "Both enter the portal.", next: "bothEnterPortal" },
+                    { text: "Set up a camp to study it.", next: "studyPortal" },
+                    { text: "Throw a rock into it to test.", next: "testPortal" }
+                ]
+            },
+
+            ignorePortal: {
+                text: "You continue playing, but can't shake the feeling of wonder. Suddenly, you hear a strange noise coming from behind.",
+                options: [
+                    { text: "Investigate the noise.", next: "investigateNoise" },
+                    { text: "Run inside to tell your parents.", next: "tellParents" },
+                    { text: "Turn up the music and dance.", next: "dance" }
+                ]
+            },
+
+            // Additional Scenes
+            chocolateRiver: {
+                text: "The chocolate river is delicious! But watch out—a sprinkle storm is approaching.",
+                options: [
+                    { text: "Take shelter under a cupcake tree.", next: "cupcakeTree" },
+                    { text: "Enjoy dancing in the sprinkle rain.", next: "sprinkleDance" },
+                    { text: "Build a chocolate boat.", next: "chocolateBoat" }
+                ]
+            },
+
+            candyMountain: {
+                text: "Climbing the candy mountain is tough but rewarding. At the top, you find a bright gem.",
+                options: [
+                    { text: "Pick up the gem.", next: "pickGem" },
+                    { text: "Leave it and enjoy the view.", next: "enjoyView" },
+                    { text: "Call out to see if anyone is there.", next: "callOut" }
+                ]
+            },
+
+            meetInhabitants: {
+                text: "You meet friendly gummy bears who invite you to a feast.",
+                options: [
+                    { text: "Join them for the feast.", next: "joinFeast" },
+                    { text: "Challenge them to a game.", next: "gameChallenge" },
+                    { text: "Politely decline and explore more.", next: "exploreMore" }
+                ]
+            },
+
+            // Ending Scenes
+            cupcakeTree: {
+                text: "Under the cupcake tree, you find hidden treasures and make new friends. The adventure continues!",
+                options: []
+            },
+
+            sprinkleDance: {
+                text: "Dancing in the sprinkle rain is joyful! You feel happier than ever.",
+                options: []
+            },
+
+            chocolateBoat: {
+                text: "You sail down the chocolate river, discovering new lands.",
+                options: []
+            },
+
+            // ... (You can add more scenes and endings)
+
+        };
+
+        // Game Functions
+        let currentScene = 'start';
+
+        function displayScene() {
+            const scene = gameData[currentScene];
+            document.getElementById('scene').innerText = scene.text;
+            const optionsDiv = document.getElementById('options');
+            optionsDiv.innerHTML = '';
+
+            if (scene.options.length === 0) {
+                // End of the path
+                const restartButton = document.createElement('button');
+                restartButton.innerText = "Restart Adventure";
+                restartButton.className = 'option-button';
+                restartButton.onclick = () => {
+                    currentScene = 'start';
+                    displayScene();
+                };
+                optionsDiv.appendChild(restartButton);
+            } else {
+                scene.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.innerText = option.text;
+                    button.className = 'option-button';
+                    button.onclick = () => {
+                        currentScene = option.next;
+                        displayScene();
+                    };
+                    optionsDiv.appendChild(button);
+                });
+            }
+        }
+
+        // Initialize Game
+        displayScene();
+    </script>
+
+</body>
+</html>
